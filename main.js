@@ -1,26 +1,10 @@
-$(document).ready(function() {
-    $('header button').click(function () {
-        $('form').slideDown();
-    })
-
-    $('#botao-cancelar').click(function(){
-        $('form').slideUp();
-    })
-
-    $('form').on('sumbit', function(e) {
+$(document).ready(function () {
+    $('form').on('submit', function (e) {
         e.preventDefault();
-        const enderecoDaNovaImagem = $('#endereco-imagem-nova').val();
-        const novoItem = $('<li style="display: none"></li>');
-        $(`<img src="${enderecoDaNovaImagem}" />`).appendTo(novoItem);
-        $(`
-            <div class="overlay-imagem-link">
-                <a href="${enderecoDaNovaImagem}" target="_blank" title="Ver imagem em tamanho real"> 
-                    Ver imagem em tamanho real
-                </a>
-            </div>
-        `).appendTo(novoItem);
+        const novoItemdaLista = $('tarefa-nova').val();
+        const novoItem = $('<li></li>');
+        $(`<p>${novoItemdaLista}</p>`).appendTo(novoItem);
         $(novoItem).appendTo('ul');
-        $(novoItem).fadeIn(1000);
-        $('#endereco-imagem-nova').val('')
+        $('#tarefa-nova').val('');
     })
 })
