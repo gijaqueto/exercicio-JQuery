@@ -8,9 +8,9 @@ $(document).ready(function () {
         $('#tarefa-nova').val('');
     })
 
-    $("ul").on("click", "li", function () {
-        const item = $('#itens').val();
-        const itemRiscado = $('<li></li>');
-        $(`<p style = text-decoration: line-through>${item}</p>`).appendTo(itemRiscado);
-    })
-})
+    $('ul').on('click', 'li', function () {
+
+        $(this).css('text-decoration', 'line-through');
+
+    });
+});
